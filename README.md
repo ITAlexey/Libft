@@ -1,5 +1,5 @@
 # Libft
-The Libft project has being been created as basis for further projects at "School 21". Because using most of the standard libraries in C are forbidden by the school rules.
+The Libft project has being been created as basis for further projects at **"School 21"**. Because using most of the standard libraries in C are forbidden by the school rules.
 The main idea is to get acquainted with underlying functions in C, their realization and applying.
 
 ## Functions
@@ -12,7 +12,7 @@ There are several types of them. The most usefull are functions deal with **stri
 - ft_lstadd, ft_lstdelone, ft_lstmap, ft_lstnew, ft_lstdel, ft_lstiter, etc.
 
 # ***Conclusion***
-The project has taught me **realization important functions, work with pointers, makefile and typical data structures.**
+The project has taught me *realization important functions, work with pointers, makefile and typical data structures.*
 
 
-All source code was written according to the school's norm.
+All source code was written according to the [school's norm](https://cdn.intra.42.fr/pdf/pdf/960/norme.en.pdf).
