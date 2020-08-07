@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 16:18:48 by dshala            #+#    #+#             */
-/*   Updated: 2019/09/19 12:58:13 by dshala           ###   ########.fr       */
+/*   Created: 2019/09/16 13:10:00 by dshala            #+#    #+#             */
+/*   Updated: 2019/09/16 15:07:37 by dshala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#define IN 1
+#define OUT 0
 
-t_list		*ft_lstnew(void const *src, size_t size)
+size_t		ft_count_words(const char *str, int c)
 {
-	t_list		*tmp;
+	size_t	counter;
+	int		is_word;
 
-	if (!(tmp = (t_list*)malloc(sizeof(t_list))))
-		return (NULL);
-	if (!src)
+	is_word = OUT;
+	counter = 0;
+	if (str != NULL)
 	{
-		tmp->content = NULL;
-		tmp->content_size = 0;
-	}
-	else
-	{
-		if (!(tmp->content = malloc(size)))
+		while (*str != '\0')
 		{
-			free(tmp);
-			return (NULL);
+			if (*str != c && is_word == OUT)
+			{
+				counter++;
+				is_word = IN;
+			}
+			else if (is_word == IN)
+				is_word = OUT;
+			str++;
 		}
-		ft_memcpy(tmp->content, src, size);
-		tmp->content_size = size;
 	}
-	tmp->next = NULL;
-	return (tmp);
+	return (counter);
 }

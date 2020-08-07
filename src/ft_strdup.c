@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 13:14:46 by dshala            #+#    #+#             */
-/*   Updated: 2019/09/16 20:18:26 by dshala           ###   ########.fr       */
+/*   Created: 2019/09/03 20:35:31 by dshala            #+#    #+#             */
+/*   Updated: 2019/10/01 10:39:44 by dshala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strdup(char const *src)
 {
-	unsigned char		*str;
-	unsigned char		*dst;
-	size_t				a;
+	unsigned char			*temp;
+	unsigned long			i;
+	unsigned const char		*str;
 
-	if (n == 0 || dest == src)
-		return (dest);
-	a = 0;
-	dst = (unsigned char*)dest;
+	i = 0;
 	str = (unsigned char*)src;
-	if (dst > str)
+	if (src == NULL || !(temp = (unsigned char*)malloc(ft_strlen(src) + 1)))
+		return (NULL);
+	while (str[i] != 0)
 	{
-		while (n--)
-			dst[n] = str[n];
+		temp[i] = str[i];
+		i++;
 	}
-	if (dst < str)
-		return (ft_memcpy(dst, str, n));
-	return (dst);
+	temp[i] = '\0';
+	return ((char*)temp);
 }

@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/03 20:35:31 by dshala            #+#    #+#             */
-/*   Updated: 2019/09/16 20:24:57 by dshala           ###   ########.fr       */
+/*   Created: 2019/09/16 12:48:50 by dshala            #+#    #+#             */
+/*   Updated: 2019/09/16 15:08:32 by dshala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char const *src)
+void	ft_free2darray(void **array)
 {
-	unsigned char			*temp;
-	unsigned long			len;
-	unsigned long			i;
-	unsigned const char		*str;
+	int		i;
 
-	str = (unsigned char*)src;
-	len = 0;
-	while (str[len])
-		len++;
-	if (!(temp = (unsigned char*)malloc(len + 1)))
-		return (NULL);
-	i = len;
-	len = 0;
-	while (len < i)
+	i = 0;
+	if (array != NULL)
 	{
-		temp[len] = str[len];
-		len++;
+		while (array[i] != NULL)
+			free(array[i++]);
+		free(array);
 	}
-	temp[len] = '\0';
-	return ((char*)temp);
 }

@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_words.c                                   :+:      :+:    :+:   */
+/*   ft_lstclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshala <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 13:10:00 by dshala            #+#    #+#             */
-/*   Updated: 2019/09/16 15:07:37 by dshala           ###   ########.fr       */
+/*   Created: 2019/10/03 15:59:03 by dshala            #+#    #+#             */
+/*   Updated: 2019/10/03 16:16:53 by dshala           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_count_words(const char *str, int c)
+void	ft_lstclr(t_gnl **head, int const fd)
 {
-	unsigned char	*tmp;
-	unsigned char	ch;
-	size_t			count;
+	t_gnl*remove;
+	t_gnl*current;
 
-	count = 0;
-	if (!str)
-		return (count);
-	ch = (unsigned char)c;
-	while (*str)
+	current = *head;
+	if (current->fd_gnl == fd)
 	{
-		if (*str != c)
-		{
-			tmp = (unsigned char*)str;
-			while (*tmp != c && *tmp)
-				tmp++;
-			count++;
-			tmp--;
-			str = (char *)tmp;
-		}
-		str++;
+		if (current->next != NULL)
+			*head = current->next;
+		free(current);
+		current = NULL;
+		return ;
 	}
-	return (count);
+	while (current->next->fd_gnl != fd)
+		current = current->next;
+	remove = current->next;
+	current->next = remove->next;
+	free(remove);
+	remove = NULL;
 }
