@@ -3,7 +3,7 @@ The Libft project has being been created as basis for further projects at "Schoo
 The main idea is to get acquainted with underlying functions in C, their realization and applying.
 
 ## Functions
-There are several types of them. The most usefull are functions deal with **strings, memory and lists.
+There are several types of them. The most usefull are functions deal with **strings, memory and lists.**
 #### Strings
 - ft_strcpy, ft_strjoin, ft_strequ, ft_strcmp, ft_strcat, ft_strsplit, ft_strtrim, ft_strnew, etc.
 #### Memory
@@ -12,6 +12,7 @@ There are several types of them. The most usefull are functions deal with **stri
 - ft_lstadd, ft_lstdelone, ft_lstmap, ft_lstnew, ft_lstdel, ft_lstiter, etc.
 
 # ***Conclusion***
-The project has taught me **realization important functions, work with pointers, makefile and typical data structures.
+The project has taught me **realization important functions, work with pointers, makefile and typical data structures.**
+
 
 All source code was written according to the school's norm.
